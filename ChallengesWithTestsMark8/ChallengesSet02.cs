@@ -27,11 +27,12 @@ namespace ChallengesWithTestsMark8
 
         public bool IsNumberOdd(int num)
         {
-            return num%2==1;
+            return num%2!=0;
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
+            if(numbers == null||numbers.Count()==0) return 0;
             var min = numbers.First();
             var max = numbers.First();
             foreach (var number in numbers)
@@ -49,6 +50,7 @@ namespace ChallengesWithTestsMark8
 
         public int Sum(int[] numbers)
         {
+            if (numbers == null) return 0;
             return numbers.Sum();
         }
 
@@ -65,13 +67,13 @@ namespace ChallengesWithTestsMark8
 
         public bool IsSumOdd(List<int> numbers)
         {
-            if (numbers == null) return 0;
+            if (numbers == null) return false;
             var sum = 0;
             foreach (var number in numbers)
             {
-                if (number % 2 == 1) sum += number;
+                if (number % 2 !=0) sum += number;
             }
-            return sum%2==1;
+            return sum%2!=0;
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
